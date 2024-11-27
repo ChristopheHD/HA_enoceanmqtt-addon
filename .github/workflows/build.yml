@@ -9,13 +9,6 @@ on:
       - opened
       - reopened
       - synchronize
-  workflow_dispatch:
-  workflow_call:
-    inputs:
-      slug:
-        description: Overrides the detected slug
-        required: false
-        type: string
   
 jobs:
   information:
