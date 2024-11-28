@@ -1,7 +1,8 @@
+---
 name: "EnOcean MQTT"
 description: "EnOcean to MQTT bridge"
 url: "https://github.com/ChristopheHD/HA_enoceanmqtt-addon"
-version: "0.1.31"
+version: "dev"
 slug: "enoceanmqtt"
 init: false
 uart: true
@@ -10,7 +11,7 @@ homeassistant_api: true
 services:
   - "mqtt:need"
 map:
-  - "config:rw"
+  - "addon_config:rw"
 arch:
   - aarch64
   - amd64
