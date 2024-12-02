@@ -19,6 +19,19 @@ MAPPING_FILE="$(bashio::config 'mapping_file')"
 export MAPPING_FILE
 bashio::log.blue "Retrieved devices file: $DEVICE_FILE"
 
+# Retrieve enOcean key connection parameters
+ENOCEAN_PORT=""
+if ! bashio::config.is_empty 'enocean_port'; then
+  ENOCEAN_PORT="$(bashio::config 'enocean_port')"
+  bashio::log.blue "EnOcean key port  = $ENOCEAN_PORT"
+elif ! bashio::config.is_empty 'enocean_tcp'; then
+  ENOCEAN_PORT="$(bashio::config 'enocean_tcp')"
+  bashio::log.blue "EnOcean key port = $ENOCEAN_PORT"
+else
+  bashio::exit.nok "No EnOcean key configured"
+fi
+export ENOCEAN_PORT
+
 # Retrieve MQTT connection parameters
 MQTT_HOST=
 MQTT_PORT=
@@ -109,7 +122,7 @@ MQTT_DISCOVERY_PREFIX="${MQTT_DISCOVERY_PREFIX%/}/"
 
 {
   echo "[CONFIG]"
-  echo "enocean_port          = $(bashio::config 'enocean_port')"
+  echo "enocean_port          = $ENOCEAN_PORT"
   echo "log_packets           = $(bashio::config 'log_packets')"
   echo "overlay               = HA"
   echo "db_file               = $DB_FILE"
