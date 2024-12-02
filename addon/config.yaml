@@ -18,11 +18,13 @@ arch:
   - armv7
   - i386
 options:
+  enocean_key:
+    - enocean_port: ""
+    - enocean_tcp: ""
   device_file: ""
   mapping_file: ""
   eep_file: ""
   log_file: "/config/enoceanmqtt.log"
-  enocean_port: ""
   debug: false
   log_packets: false
   use_dev_name_in_entity: false
@@ -32,11 +34,13 @@ options:
   mqtt_client_id: "enocean_gateway"
   mqtt_keepalive: 60
 schema:
+  enocean_key_connection:
+    - enocean_port: "device(subsystem=tty)?"
+    - enocean_tcp: "match(^tcp:)?"
   device_file: "str"
   mapping_file: "str?"
   eep_file: "str?"
   log_file: "str?"
-  enocean_port: "device(subsystem=tty)"
   debug: "bool?"
   log_packets: "bool?"
   use_dev_name_in_entity: "bool?"
