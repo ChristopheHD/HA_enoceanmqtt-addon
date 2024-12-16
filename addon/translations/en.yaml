@@ -1,7 +1,8 @@
+---
 configuration:
   enocean_port:
     name: Serial/USB port of the key
-    description: In case of TCP configuration, please select an unused serial port
+    description: For TCP configuration, please select an unused serial port
   enocean_tcp:
     name: TCP address and port of the key
     description: tcp:<address>:<port>
