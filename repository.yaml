@@ -1,3 +1,4 @@
+---
 name: "EnOcean to MQTT"
 url: "https://github.com/ChristopheHD/HA_enoceanmqtt-addon"
 maintainer: "ChristopheHD (addon) and aseracorp (enoceanmqtt)"

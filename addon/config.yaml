@@ -1,3 +1,4 @@
+---
 name: "EnOcean MQTT"
 description: "EnOcean to MQTT bridge"
 url: "https://github.com/ChristopheHD/HA_enoceanmqtt-addon"
