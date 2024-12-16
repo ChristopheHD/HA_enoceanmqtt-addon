@@ -1,7 +1,7 @@
 name: "EnOcean MQTT"
 description: "EnOcean to MQTT bridge"
 url: "https://github.com/ChristopheHD/HA_enoceanmqtt-addon"
-version: "0.1.32"
+version: "dev"
 slug: "ha_enoceanmqtt_aseracorp"
 init: false
 uart: true
@@ -18,10 +18,9 @@ arch:
   - armv7
   - i386
 options:
-  enocean_key:
-    - enocean_port: ""
-    - enocean_tcp: ""
-  device_file: ""
+  enocean_port: ""
+  enocean_tcp: ""
+  device_file: "/config/enoceanmqtt.devices"
   mapping_file: ""
   eep_file: ""
   log_file: "/config/enoceanmqtt.log"
@@ -34,9 +33,8 @@ options:
   mqtt_client_id: "enocean_gateway"
   mqtt_keepalive: 60
 schema:
-  enocean_key_connection:
-    - enocean_port: "device(subsystem=tty)?"
-    - enocean_tcp: "match(^tcp:)?"
+  enocean_port: "device(subsystem=tty)"
+  enocean_tcp: "match(tcp:.+:[0-9]+|^$)?"
   device_file: "str"
   mapping_file: "str?"
   eep_file: "str?"

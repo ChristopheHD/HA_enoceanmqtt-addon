@@ -1,3 +1,16 @@
+## 0.1.32
+
+### What's Changed
+* Continuous integration by @ChristopheHD in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/4
+* Bump pyyaml from 6.0.1 to 6.0.2 in /addon by @dependabot in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/5
+* Bump tinydb from 4.7.1 to 4.8.2 in /addon by @dependabot in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/6
+
+### New Contributors
+* @ChristopheHD made their first contribution in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/4
+* @dependabot made their first contribution in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/5
+
+**Full Changelog**: https://github.com/ChristopheHD/HA_enoceanmqtt-addon/compare/v0.1.30...v0.1.32
+
 ## 0.1.30
 
 /!\ Fork aseracorp/HA_enoceanMQTT

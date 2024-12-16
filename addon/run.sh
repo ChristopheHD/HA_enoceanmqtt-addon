@@ -21,12 +21,12 @@ bashio::log.blue "Retrieved devices file: $DEVICE_FILE"
 
 # Retrieve enOcean key connection parameters
 ENOCEAN_PORT=""
-if ! bashio::config.is_empty 'enocean_port'; then
-  ENOCEAN_PORT="$(bashio::config 'enocean_port')"
-  bashio::log.blue "EnOcean key port  = $ENOCEAN_PORT"
-elif ! bashio::config.is_empty 'enocean_tcp'; then
+if ! bashio::config.is_empty 'enocean_tcp'; then
   ENOCEAN_PORT="$(bashio::config 'enocean_tcp')"
   bashio::log.blue "EnOcean key port = $ENOCEAN_PORT"
+elif ! bashio::config.is_empty 'enocean_port'; then
+  ENOCEAN_PORT="$(bashio::config 'enocean_port')"
+  bashio::log.blue "EnOcean key port  = $ENOCEAN_PORT"
 else
   bashio::exit.nok "No EnOcean key configured"
 fi

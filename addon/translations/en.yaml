@@ -1,12 +1,10 @@
 configuration:
-  enocean_key_connection:
-    name: Enocean key connection
-    description: Please fill only one of two configuration (serial/USB or TCP)
   enocean_port:
-    name: Serial/USB port
+    name: Serial/USB port of the key
+    description: In case of TCP configuration, please select an unused serial port
   enocean_tcp:
-    name: TCP address and port
-    description: tcp:<ip_address>:<port>
+    name: TCP address and port of the key
+    description: tcp:<address>:<port>
   device_file:
     name: Device file
     description: enoceanmqtt.devices
