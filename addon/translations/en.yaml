@@ -1,0 +1,34 @@
+configuration:
+  enocean_port:
+    name: Serial/USB port of the key
+    description: In case of TCP configuration, please select an unused serial port
+  enocean_tcp:
+    name: TCP address and port of the key
+    description: tcp:<address>:<port>
+  device_file:
+    name: Device file
+    description: enoceanmqtt.devices
+  mapping_file:
+    name: MQTT/HA mapping file
+    description: mapping.yaml
+  eep_file:
+    name: EEP/MQTT mapping file
+    description: EEP.xml
+  log_file:
+    name: Log file
+  debug:
+    name: Debug
+  log_packets:
+    name: Log packets
+  use_dev_name_in_entity:
+    name: Use device name in entity
+  mqtt_broker:
+    name: MQTT broker
+  mqtt_discovery_prefix:
+    name: MQTT discovery prefix
+  mqtt_prefix:
+    name: MQTT prefix
+  mqtt_client_id:
+    name: MQTT client ID
+  mqtt_keepalive:
+    name: MQTT keepalive timer
