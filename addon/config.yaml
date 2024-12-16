@@ -11,7 +11,7 @@ homeassistant_api: true
 services:
   - "mqtt:need"
 map:
-  - "addon_config:rw"
+  - "config:rw"
 arch:
   - aarch64
   - amd64
