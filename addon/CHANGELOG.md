@@ -1,3 +1,20 @@
+## 0.1.34
+
+### What's New
+- EEP A5-30-02 thanks to @madejackson
+- EEP D2-06-01 (following sensors have not been tested : diagnostic, configuration, temperature, humidity, illumination, motion, protection plus alarm)
+- EEP F6-05-01 (known bugs : HA automation is triggered at each restart)
+
+### What's Changed
+- D2-50-00 : adding air quality and filter maintenance sensors thanks to @Alaric84
+- A5-10-03 : Rounding for temperature and humidity with raw values available thanks to @jansorg
+- Set-point devices : correction of HA properties for setpoint values thanks to @jansorg
+
+### New Contributors
+
+- @Alaric84 made their first contribution
+- @jansorg made their first contribution
+
 ## 0.1.33
 
 ### What's New
