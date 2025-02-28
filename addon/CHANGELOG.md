@@ -1,6 +1,7 @@
 ## 0.1.34
 
 ### What's New
+- EEP A5-09-0C
 - EEP A5-30-02 thanks to @madejackson
 - EEP D2-06-01 (following sensors have not been tested : diagnostic, configuration, temperature, humidity, illumination, motion, protection plus alarm)
 - EEP F6-05-01 (known bugs : HA automation is triggered at each restart)
@@ -9,6 +10,9 @@
 - D2-50-00 : adding air quality and filter maintenance sensors thanks to @Alaric84
 - A5-10-03 : Rounding for temperature and humidity with raw values available thanks to @jansorg
 - Set-point devices : correction of HA properties for setpoint values thanks to @jansorg
+
+### What's Fixed
+- A5 devices not working ("message not interpretable") in https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/20
 
 ### New Contributors
 
