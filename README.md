@@ -27,7 +27,7 @@ Easily integrate enOcean protocol using MQTT layer
 
 ## ℹ️ About the Project
 
-This is the [Home Assistant](https://www.home-assistant.io/) addon for [HA_enoceanmqtt](https://github.com/aseracorp/HA_enoceanmqtt).  
+This is the [Home Assistant](https://www.home-assistant.io/) addon for [HA_enoceanmqtt](https://github.com/ChristopheHD/HA_enoceanmqtt).  
 HA_enoceanmqtt allows to easily have access to EnOcean devices in Home Assistant through MQTT.
 
 ## 🛠 Stack Tech

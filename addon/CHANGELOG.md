@@ -1,3 +1,9 @@
+## 0.1.41
+
+### 🚀 What's Improved
+
+- Documentation tab of the addon have been improved (quick setup guide and correct links to wiki)
+
 ## 0.1.40
 
 ### 🔧 What's Fixed
