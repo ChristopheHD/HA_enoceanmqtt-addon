@@ -1,3 +1,9 @@
+## 0.1.43
+
+### ✨ What's New
+
+- Device Eltako TF100L
+
 ## 0.1.42
 
 ### 🚀 What's Improved
