@@ -4,6 +4,7 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 ---
 version: 2
+target-branch: "next_release"
 updates:
   - package-ecosystem: "pip"  # See documentation for possible values
     directory: "/addon"  # Location of package manifests
