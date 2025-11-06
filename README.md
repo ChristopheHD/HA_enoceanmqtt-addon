@@ -52,7 +52,7 @@ To install this project, follow these steps:
 
 #### Configuration
 
-1. Adapt the [`addon/enoceanmqtt.devices.sample`](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon-dev/enoceanmqtt.devices.sample) (refer to the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) for help) and put it to your Home Assistant **/config** directory. You can use the Home Assistant **File Editor**.
+1. Adapt the [`addon/enoceanmqtt.devices.sample`](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample) (refer to the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) for help) and put it to your Home Assistant **/config** directory. You can use the Home Assistant **File Editor**.
 1. Go on the **Configuration** tab of the addon
    - Indicate the location of this device file under the **device_file** entry (on HAOS, it would be `/config/enoceanmqtt.devices`).
    - Select the serial interface of your EnOcean transceiver in the list of detected serial ports. When using yaml configuration, the format is for example:
