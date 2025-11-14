@@ -11,7 +11,7 @@ RUN apk add --no-cache python3 py3-pip git && \
     . /app/venv/bin/activate && \
     python3 -m pip install --upgrade pip && \
     pip3 install -r requirements.txt && \
-    pip3 install git+https://github.com/ChristopheHD/enocean.git  && \
+    pip3 install git+https://github.com/ChristopheHD/enocean.git@add-msc-telegram-support  && \
     git clone -b master --single-branch --depth 1 https://github.com/embyt/enocean-mqtt.git && \
     cd enocean-mqtt && pip install -e . && cd .. && \
     echo "Installing from repository head" && \
