@@ -15,7 +15,7 @@ RUN apk add --no-cache python3 py3-pip git && \
     git clone -b master --single-branch --depth 1 https://github.com/embyt/enocean-mqtt.git && \
     cd enocean-mqtt && pip install -e . && cd .. && \
     echo "Installing from repository head" && \
-    git clone -b develop --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git ; \
+    git clone -b msc --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git ; \
     cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt && \
     rm -rf ./HA_enoceanmqtt
 
