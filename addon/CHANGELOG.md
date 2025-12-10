@@ -1,3 +1,13 @@
+## 1.0.2
+
+### 🚀 What's Improved
+
+- [HA mapping yaml](https://github.com/ChristopheHD/HA_enoceanmqtt/blob/develop/enoceanmqtt/overlays/homeassistant/mapping.yaml) indentation corrected thanks to @H4rryK4ne (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/31)
+
+### 👏 New Contributors
+
+- @H4rryK4ne made their first contribution
+
 ## 1.0.1
 
 ### 🔧 What's Fixed
