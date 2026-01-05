@@ -4,9 +4,14 @@
 
 - [HA mapping yaml](https://github.com/ChristopheHD/HA_enoceanmqtt/blob/develop/enoceanmqtt/overlays/homeassistant/mapping.yaml) indentation corrected thanks to @H4rryK4ne (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/31)
 
+### 🔧 What's Fixed
+
+- F6-02-01 RPS telegram decoding failure thanks to @Hugo-HoB (https://github.com/mak-gitdev/HA_enoceanmqtt/pull/173)
+
 ### 👏 New Contributors
 
 - @H4rryK4ne made their first contribution
+- @Hugo-HoB made their first contribution
 
 ## 1.0.1
 
