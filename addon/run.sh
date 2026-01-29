@@ -78,7 +78,11 @@ if [ -z "${MQTT_HOST}" ] || \
   bashio::log.blue "mqtt_host = $MQTT_HOST"
   bashio::log.blue "mqtt_port = $MQTT_PORT"
   bashio::log.blue "mqtt_user = $MQTT_USER"
-  bashio::log.blue "mqtt_pwd  = $MQTT_PSWD"
+  if bashio::var.has_value "${MQTT_PSWD}"; then
+    bashio::log.blue "mqtt_pwd  = ******"
+  else
+    bashio::log.blue "mqtt_pwd  = "
+  fi
   bashio::exit.nok "MQTT broker connection not fully configured"
 fi
 
