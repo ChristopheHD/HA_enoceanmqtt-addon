@@ -8,6 +8,10 @@
 
 - F6-02-01 RPS telegram decoding failure thanks to @Hugo-HoB (https://github.com/mak-gitdev/HA_enoceanmqtt/pull/173)
 
+### 🛑 What's Removed
+
+- MQTT password is not logged anymore for security reasons
+
 ### 👏 New Contributors
 
 - @H4rryK4ne made their first contribution
