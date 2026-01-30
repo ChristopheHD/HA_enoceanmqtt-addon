@@ -1,4 +1,9 @@
-## 1.0.2
+## 2.0.0
+
+### ✨ What's New
+
+- MSC telegrams (Manufacturer Specific Communication) are now supported and can be added to custom mappings (https://github.com/ChristopheHD/enocean/pull/25)
+- Nodon repeater configuration ([Wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Nodon#repeater-mode)) (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/discussions/78)
 
 ### 🚀 What's Improved
 
