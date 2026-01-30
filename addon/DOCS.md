@@ -1,6 +1,6 @@
 # Configuration
 
-1. Create a configuration file enoceanmqtt.devices ([sample](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon-dev/enoceanmqtt.devices.sample)) in the configuration folder of Home Assistant
+1. Create a configuration file enoceanmqtt.devices ([sample](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample)) in the configuration folder of Home Assistant
 2. Select the enocean key in the list
 3. Leave the MQTT broker configuration empty if you want to use your Home Assistant Mosquitto broker parameters.
 

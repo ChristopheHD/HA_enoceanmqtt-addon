@@ -19,7 +19,7 @@ MAPPING_FILE="$(bashio::config 'mapping_files.mapping_file')"
 export MAPPING_FILE
 bashio::log.blue "Retrieved devices file: $DEVICE_FILE"
 
-# Retrieve enOcean key connection parameters
+# Retrieve EnOcean key connection parameters
 ENOCEAN_PORT=""
 if ! bashio::config.is_empty 'enocean_tcp'; then
   ENOCEAN_PORT="$(bashio::config 'enocean_tcp')"
@@ -33,10 +33,10 @@ fi
 export ENOCEAN_PORT
 
 # Retrieve MQTT connection parameters
-MQTT_HOST=
-MQTT_PORT=
-MQTT_USER=
-MQTT_PSWD=
+MQTT_HOST=""
+MQTT_PORT=""
+MQTT_USER=""
+MQTT_PSWD=""
 if ! bashio::config.is_empty 'mqtt.host'; then
   MQTT_HOST="$(bashio::config 'mqtt.host')"
   export MQTT_HOST
@@ -78,7 +78,11 @@ if [ -z "${MQTT_HOST}" ] || \
   bashio::log.blue "mqtt_host = $MQTT_HOST"
   bashio::log.blue "mqtt_port = $MQTT_PORT"
   bashio::log.blue "mqtt_user = $MQTT_USER"
-  bashio::log.blue "mqtt_pwd  = $MQTT_PSWD"
+  if bashio::var.has_value "${MQTT_PSWD}"; then
+    bashio::log.blue "mqtt_pwd  = ******"
+  else
+    bashio::log.blue "mqtt_pwd  = "
+  fi
   bashio::exit.nok "MQTT broker connection not fully configured"
 fi
 
@@ -97,23 +101,24 @@ MQTT_DISCOVERY_PREFIX="${MQTT_DISCOVERY_PREFIX%/}/"
 
 {
   echo "[CONFIG]"
-  echo "enocean_port          = $ENOCEAN_PORT"
+  echo "enocean_port          = ${ENOCEAN_PORT}"
   echo "log_packets           = $(bashio::config 'logging.log_packets')"
   echo "overlay               = HA"
-  echo "db_file               = $DB_FILE"
-  echo "mapping_file          = $MAPPING_FILE"
-  echo "mqtt_discovery_prefix = $MQTT_DISCOVERY_PREFIX"
-  echo "mqtt_host             = $MQTT_HOST"
-  echo "mqtt_port             = $MQTT_PORT"
+  echo "db_file               = ${DB_FILE}"
+  echo "mapping_file          = ${MAPPING_FILE}"
+  echo "mqtt_discovery_prefix = ${MQTT_DISCOVERY_PREFIX}"
+  echo "mqtt_host             = ${MQTT_HOST}"
+  echo "mqtt_port             = ${MQTT_PORT}"
   echo "mqtt_client_id        = $(bashio::config 'mqtt.client_id')"
   echo "mqtt_keepalive        = $(bashio::config 'mqtt.keepalive')"
-  echo "mqtt_prefix           = $MQTT_PREFIX"
-  echo "mqtt_user             = $MQTT_USER"
-  echo "mqtt_pwd              = $MQTT_PSWD"
+  echo "mqtt_prefix           = ${MQTT_PREFIX}"
+  echo "mqtt_user             = ${MQTT_USER}"
+  echo "mqtt_pwd              = ${MQTT_PSWD}"
   echo "mqtt_debug            = $(bashio::config 'debug')"
   echo ""
   cat "$DEVICE_FILE"
-} > $CONFIG_FILE
+} > "${CONFIG_FILE}"
+bashio::log.debug "Configuration written to ${CONFIG_FILE}"
 
 # Delete previous session log
 rm -f "$LOG_FILE"

@@ -1,3 +1,29 @@
+## 2.0.0
+
+### ✨ What's New
+
+- MSC telegrams (Manufacturer Specific Communication) are now supported and can be added to custom mappings (https://github.com/ChristopheHD/enocean/pull/25)
+- Nodon repeater configuration ([Wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Nodon#repeater-mode)) (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/discussions/78)
+
+### 🚀 What's Improved
+
+- [HA mapping yaml](https://github.com/ChristopheHD/HA_enoceanmqtt/blob/develop/enoceanmqtt/overlays/homeassistant/mapping.yaml) indentation corrected thanks to @H4rryK4ne (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/31)
+
+### 🔧 What's Fixed
+
+- F6-02-01 RPS telegram decoding failure thanks to @Hugo-HoB (https://github.com/mak-gitdev/HA_enoceanmqtt/pull/173)
+- Broken link in the documentation tab (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/88)
+- Removed false error parsing value in the logs (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/57)
+
+### 🛑 What's Removed
+
+- MQTT password is not logged anymore for security reasons (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/87)
+
+### 👏 New Contributors
+
+- @H4rryK4ne made their first contribution
+- @Hugo-HoB made their first contribution
+
 ## 1.0.1
 
 ### 🔧 What's Fixed
