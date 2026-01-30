@@ -13,6 +13,7 @@
 
 - F6-02-01 RPS telegram decoding failure thanks to @Hugo-HoB (https://github.com/mak-gitdev/HA_enoceanmqtt/pull/173)
 - Broken link in the documentation tab (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/88)
+- Removed false error parsing value in the logs (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/57)
 
 ### 🛑 What's Removed
 
