@@ -1,4 +1,0 @@
-## 2025-05-15 - Hardening Add-on Entrypoint Script
-**Vulnerability:** Potential exposure of secrets in configuration files and environment.
-**Learning:** Home Assistant add-ons often generate configuration files at runtime. If not careful, these files can be created with overly permissive permissions. Also, exporting sensitive data (or even non-sensitive data that doesn't need to be exported) to the environment of sub-processes increases the attack surface. Using `echo` to write secrets to files can also lead to issues if the secret contains special characters that `echo` might interpret.
-**Prevention:** Use a global `umask 0077` in entrypoint scripts to ensure all generated files are private by default. Use `printf` with `%s` format specifiers instead of `echo` for writing configuration values safely. Avoid `export` unless a variable is strictly required by the environment of a sub-process.
