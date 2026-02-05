@@ -2,6 +2,9 @@
 set -e
 set -u
 
+# Set restrictive umask for the entire script
+umask 0077
+
 # Initialize variables to ensure they are defined (for set -u)
 MQTT_HOST=""
 MQTT_PORT=""
@@ -20,17 +23,14 @@ bashio::config.require 'mqtt.keepalive'
 bashio::log.green "Preparing to start..."
 
 # Set files to be used
-export CONFIG_FILE="/data/enoceanmqtt.conf"
-export DB_FILE="/data/enoceanmqtt_db.json"
+CONFIG_FILE="/data/enoceanmqtt.conf"
+DB_FILE="/data/enoceanmqtt_db.json"
 DEVICE_FILE="$(bashio::config 'device_file')"
 if [ ! -f "$DEVICE_FILE" ]; then
     bashio::exit.nok "Device file not found at $DEVICE_FILE"
 fi
-export DEVICE_FILE
 LOG_FILE="$(bashio::config 'logging.log_file')"
-export LOG_FILE
 MAPPING_FILE="$(bashio::config 'mapping_files.mapping_file')"
-export MAPPING_FILE
 bashio::log.blue "Retrieved devices file: $DEVICE_FILE"
 
 # Retrieve EnOcean key connection parameters
@@ -43,7 +43,6 @@ elif ! bashio::config.is_empty 'enocean_port'; then
 else
   bashio::exit.nok "No EnOcean key configured"
 fi
-export ENOCEAN_PORT
 
 # Retrieve MQTT connection parameters
 if ! bashio::config.is_empty 'mqtt.host'; then
@@ -95,30 +94,28 @@ else
 fi
 
 # Create enoceanmqtt configuration file
-# Use umask to ensure the configuration file is created with restrictive permissions
-umask 0077
 MQTT_PREFIX=$(bashio::config 'mqtt.prefix')
 MQTT_DISCOVERY_PREFIX=$(bashio::config 'mqtt.discovery_prefix')
 MQTT_PREFIX="${MQTT_PREFIX%/}/"
 MQTT_DISCOVERY_PREFIX="${MQTT_DISCOVERY_PREFIX%/}/"
 
 {
-  echo "[CONFIG]"
-  echo "enocean_port          = ${ENOCEAN_PORT}"
-  echo "log_packets           = $(bashio::config 'logging.log_packets')"
-  echo "overlay               = HA"
-  echo "db_file               = ${DB_FILE}"
-  echo "mapping_file          = ${MAPPING_FILE}"
-  echo "mqtt_discovery_prefix = ${MQTT_DISCOVERY_PREFIX}"
-  echo "mqtt_host             = ${MQTT_HOST}"
-  echo "mqtt_port             = ${MQTT_PORT}"
-  echo "mqtt_client_id        = $(bashio::config 'mqtt.client_id')"
-  echo "mqtt_keepalive        = $(bashio::config 'mqtt.keepalive')"
-  echo "mqtt_prefix           = ${MQTT_PREFIX}"
-  echo "mqtt_user             = ${MQTT_USER}"
-  echo "mqtt_pwd              = ${MQTT_PSWD}"
-  echo "mqtt_debug            = $(bashio::config 'logging.debug')"
-  echo ""
+  printf "[CONFIG]\n"
+  printf "enocean_port          = %s\n" "${ENOCEAN_PORT}"
+  printf "log_packets           = %s\n" "$(bashio::config 'logging.log_packets')"
+  printf "overlay               = HA\n"
+  printf "db_file               = %s\n" "${DB_FILE}"
+  printf "mapping_file          = %s\n" "${MAPPING_FILE}"
+  printf "mqtt_discovery_prefix = %s\n" "${MQTT_DISCOVERY_PREFIX}"
+  printf "mqtt_host             = %s\n" "${MQTT_HOST}"
+  printf "mqtt_port             = %s\n" "${MQTT_PORT}"
+  printf "mqtt_client_id        = %s\n" "$(bashio::config 'mqtt.client_id')"
+  printf "mqtt_keepalive        = %s\n" "$(bashio::config 'mqtt.keepalive')"
+  printf "mqtt_prefix           = %s\n" "${MQTT_PREFIX}"
+  printf "mqtt_user             = %s\n" "${MQTT_USER}"
+  printf "mqtt_pwd              = %s\n" "${MQTT_PSWD}"
+  printf "mqtt_debug            = %s\n" "$(bashio::config 'logging.debug')"
+  printf "\n"
   cat "$DEVICE_FILE"
 } > "${CONFIG_FILE}"
 bashio::log.debug "Configuration written to ${CONFIG_FILE}"
