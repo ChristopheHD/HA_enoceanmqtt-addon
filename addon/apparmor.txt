@@ -1,0 +1,40 @@
+#include <tunables/global>
+
+profile {{ slug }} flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  # Addon specific paths
+  /app/** r,
+  /app/*.sh ix,
+  /app/venv/bin/** ix,
+
+  # Persistent data and Home Assistant config
+  /data/** rw,
+  /config/** rw,
+
+  # Serial devices for EnOcean communication
+  /dev/ttyUSB[0-9]* rw,
+  /dev/ttyAMA[0-9]* rw,
+  /dev/ttyS[0-9]* rw,
+  /dev/serial/by-id/* rw,
+  /sys/class/tty/ r,
+  /sys/class/tty/** r,
+  /sys/devices/** r,
+
+  # Network access for MQTT and bashio/HA API
+  network tcp,
+  network udp,
+  network unix,
+
+  # Common shell utilities used by the addon and bashio
+  /bin/** ix,
+  /sbin/** ix,
+  /usr/bin/** ix,
+  /usr/sbin/** ix,
+
+  # Temporary files and process info
+  /tmp/** rw,
+  @{PROC}/@{pid}/   r,
+  @{PROC}/@{pid}/** r,
+}
