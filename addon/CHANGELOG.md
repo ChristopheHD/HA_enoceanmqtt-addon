@@ -1,3 +1,9 @@
+## 2.0.1
+
+### 💫 What's changed
+
+- Addon have been renamed to App following [Home Assistant decision](https://www.home-assistant.io/blog/2026/02/04/release-20262/#add-ons-are-now-called-apps)
+
 ## 2.0.0
 
 ### ✨ What's New
