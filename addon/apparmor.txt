@@ -1,10 +1,11 @@
 #include <tunables/global>
 
-profile {{ slug }} flags=(attach_disconnected,mediate_deleted) {
+profile ha_enoceanmqtt_aseracorp flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 
   # Addon specific paths
+  /init ix,
   /app/** r,
   /app/*.sh ix,
   /app/venv/bin/** ix,
@@ -33,7 +34,9 @@ profile {{ slug }} flags=(attach_disconnected,mediate_deleted) {
   /usr/bin/** ix,
   /usr/sbin/** ix,
 
-  # Temporary files and process info
+  # S6 overlay and process info
+  /etc/s6-overlay/** r,
+  /run/s6/** rw,
   /tmp/** rw,
   @{PROC}/@{pid}/   r,
   @{PROC}/@{pid}/** r,
