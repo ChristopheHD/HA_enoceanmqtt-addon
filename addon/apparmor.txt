@@ -4,8 +4,29 @@ profile ha_enoceanmqtt_aseracorp flags=(attach_disconnected,mediate_deleted) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
 
-  # Addon specific paths
+  # Capabilities
+  file,
+  signal (send) set=(kill,term,int,hup,cont),
+
+  # S6-Overlay
   /init ix,
+  /bin/** ix,
+  /sbin/** ix,
+  /usr/bin/** ix,
+  /usr/sbin/** ix,
+  /run/{s6,s6-rc*,service}/** ix,
+  /package/** ix,
+  /command/** ix,
+  /etc/services.d/** rwix,
+  /etc/cont-init.d/** rwix,
+  /etc/cont-finish.d/** rwix,
+  /run/{,**} rwk,
+
+  # Bashio
+  /usr/lib/bashio/** ix,
+  /tmp/** rwk,
+
+  # Addon specific paths
   /app/** r,
   /app/*.sh ix,
   /app/venv/bin/** ix,
@@ -19,6 +40,7 @@ profile ha_enoceanmqtt_aseracorp flags=(attach_disconnected,mediate_deleted) {
   /dev/ttyAMA[0-9]* rw,
   /dev/ttyS[0-9]* rw,
   /dev/serial/by-id/* rw,
+  /dev/tty rw,
   /sys/class/tty/ r,
   /sys/class/tty/** r,
   /sys/devices/** r,
@@ -28,16 +50,7 @@ profile ha_enoceanmqtt_aseracorp flags=(attach_disconnected,mediate_deleted) {
   network udp,
   network unix,
 
-  # Common shell utilities used by the addon and bashio
-  /bin/** ix,
-  /sbin/** ix,
-  /usr/bin/** ix,
-  /usr/sbin/** ix,
-
-  # S6 overlay and process info
-  /etc/s6-overlay/** r,
-  /run/s6/** rw,
-  /tmp/** rw,
+  # Process info
   @{PROC}/@{pid}/   r,
   @{PROC}/@{pid}/** r,
 }
