@@ -10,7 +10,7 @@
 
 ### 🚀 What's Improved
 
-- App security level reach level 6 (green) after installation thanks to AppArmor activation
+- App security is now level 6 (green) after installation thanks to AppArmor activation
 
 ## 2.0.0
 
