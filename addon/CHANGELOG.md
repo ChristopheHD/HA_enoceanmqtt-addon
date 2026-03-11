@@ -2,7 +2,7 @@
 
 ### ✨ What's New
 
-- Devices Eltako FUTH65D, FUTH55D and FUTH55ED (thanks to @Kuhguck numerous tests)
+- Devices Eltako FUTH65D, FUTH55D and FUTH55ED thanks to @Kuhguck
 
 ### 💫 What's changed
 
@@ -11,6 +11,10 @@
 ### 🚀 What's Improved
 
 - App security is now level 6 (green) after installation thanks to AppArmor activation
+
+### 👏 New Contributors
+
+- @Kuhguck made their first contribution
 
 ## 2.0.0
 
