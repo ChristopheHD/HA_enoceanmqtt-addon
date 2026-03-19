@@ -1,3 +1,21 @@
+## 3.0.0
+
+### ✨ What's New
+
+- Devices Eltako FUTH65D, FUTH55D and FUTH55ED thanks to @Kuhguck
+
+### 💫 What's changed
+
+- Addon have been renamed to App following [Home Assistant decision](https://www.home-assistant.io/blog/2026/02/04/release-20262/#add-ons-are-now-called-apps)
+
+### 🚀 What's Improved
+
+- App security is now level 6 (green) after installation thanks to AppArmor activation
+
+### 👏 New Contributors
+
+- @Kuhguck made their first contribution
+
 ## 2.0.0
 
 ### ✨ What's New

@@ -1,22 +1,22 @@
 <div align="center">
 
 <a href="" target="_blank" title="Go to  website">
-<img width="196px" alt="Home Assistant enOcean addon" src="https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/logo.png?raw=true">
+<img width="196px" alt="Home Assistant EnOcean app" src="https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/logo.png?raw=true">
 </a>
 
-# Home Assistant EnOcean addon
+# Home Assistant EnOcean app
 
-EnOcean compatibility using MQTT integration
+Provide Home Assistant EnOcean compatibility using MQTT broker and integration
 
-![downloads](https://img.shields.io/badge/dynamic/json?color=41BDF5&logo=home-assistant&label=addon%20usage&suffix=%20active%20installations&cacheSeconds=15600&url=https://analytics.home-assistant.io/addons.json&query=$.f93730fa_ha_enoceanmqtt_aseracorp.total)
+![downloads](https://img.shields.io/badge/dynamic/json?color=41BDF5&logo=home-assistant&label=app%20usage&suffix=%20active%20installations&cacheSeconds=15600&url=https://analytics.home-assistant.io/addons.json&query=$.f93730fa_ha_enoceanmqtt_aseracorp.total)
 
 </div>
 
-<div align="center"><h4><a href="#-about-the-project">ℹ️ About the Project</a> • <a href="#-features">⭐️ Features</a> • <a href="#-setup">⚙ ️Setup</a> • <a href="#-contributing">👏🏻 Contributing</a> • <a href="#-stack-tech">🛠 Stack Tech</a></h4></div>
+<div align="center"><h4><a href="#-about-the-project">ℹ️ About the Project</a> • <a href="#-features">⭐️ Features</a> • <a href="#-setup">⚙ ️Setup</a> • <a href="#-contributing">👏🏻 Contributing</a> • <a href="#-stack-tech">🛠 Stack Tech</a> • <a href="#-special-thanks">🙏 Special Thanks</a></h4></div>
 
 ## ℹ️ About the Project
 
-This [Home Assistant](https://www.home-assistant.io/) addon allows to integrate [EnOcean devices](https://www.enocean-alliance.org/products/) using [MQTT integration](https://www.home-assistant.io/integrations/mqtt/).
+This [Home Assistant](https://www.home-assistant.io/) app allows to integrate [EnOcean devices](https://www.enocean-alliance.org/products/) using [MQTT integration](https://www.home-assistant.io/integrations/mqtt/).
 
 ## ⭐️ Features
 
@@ -48,19 +48,19 @@ To install this project, follow these steps:
 
 [![](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https://github.com/ChristopheHD/HA_enoceanmqtt-addon)
 
-3. Click on the addon and press **Install** and wait until the addon is installed.
+3. Click on the app and press **Install** and wait until the app is installed.
 
 #### Configuration
 
 1. Adapt the [`addon/enoceanmqtt.devices.sample`](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample) (refer to the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) for help) and put it to your Home Assistant **/config** directory. You can use the Home Assistant **File Editor**.
-1. Go on the **Configuration** tab of the addon
+1. Go on the **Configuration** tab of the app
    - Indicate the location of this device file under the **device_file** entry (on HAOS, it would be `/config/enoceanmqtt.devices`).
    - Select the serial interface of your EnOcean transceiver in the list of detected serial ports. When using yaml configuration, the format is for example:
      ```yaml
      enocean_port: /dev/ttyUSB0
      ```
    - Click **Save** at the bottom of the page
-1. Start the addon by going to **Info** tab and click **Start**
+1. Start the app by going to **Info** tab and click **Start**
 
 ## 👏🏻 Contributing
 
@@ -88,8 +88,12 @@ For more information on how to contribute, please visit [Contribution Guidelines
 [MQTT-badge]: https://img.shields.io/badge/MQTT-C92C3E?style=for-the-badge&logo=mqtt
 [MQTT-url]: }
 
-<img src="https://raw.githubusercontent.com/mak-gitdev/HA_enoceanmqtt-addon/master/.github/images/install_addon.svg" alt="Install Addon" width="75%"/>
+<img src="https://raw.githubusercontent.com/mak-gitdev/HA_enoceanmqtt-addon/master/.github/images/install_addon.svg" alt="Install app" width="75%"/>
 <br/>
+
+## 🙏 Special Thanks
+
+Special thanks to @mak-gitdev which created this app, @embyt which created the EnOcean MQTT mapping and @kipe which created the EnOcean communication library.
 
 ---
 
