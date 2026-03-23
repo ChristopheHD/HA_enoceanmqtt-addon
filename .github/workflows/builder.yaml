@@ -10,34 +10,77 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  ARCHITECTURES: '["amd64", "aarch64"]'
+  IMAGE_NAME: ha_enoceanmqtt-addon
+  version: "dev"
+
+permissions:
+  contents: read
+
 jobs:
-  build:
+  init:
+    name: Initialize build
     runs-on: ubuntu-latest
-    name: Build ${{ matrix.arch }} add-on
-    strategy:
-      matrix:
-        arch: ["aarch64", "amd64"]
-    permissions:
-      contents: read
-      packages: write
-
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      version: ${{ steps.info.outputs.version }}
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@v6.0.2
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v4.0.0
+      - name: Get information
+        id: info
+        uses: home-assistant/actions/helpers/info@master
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          path: "./addon"
 
-      - name: Build add-on
-        uses: home-assistant/builder@2026.02.1
+      - name: Get build matrix
+        id: matrix
+        uses: home-assistant/builder/actions/prepare-multi-arch-matrix@2026.03.2
         with:
-          args: |
-            --${{ matrix.arch }} \
-            --image "${{ matrix.arch }}-ha_enoceanmqtt-addon" \
-            --target /data/addon \
-            --docker-hub "ghcr.io/${{ github.repository_owner }}" \
-            --addon
+          architectures: ${{ env.ARCHITECTURES }}
+          image-name: ${{ env.IMAGE_NAME }}
+
+  build:
+    name: Build ${{ matrix.arch }} image
+    needs: init
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read # To check out the code
+      id-token: write # Write needed for Cosign signing (issue OIDC token for signing)
+      packages: write # To push built images to GitHub Container Registry
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.init.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build image
+        uses: home-assistant/builder/actions/build-image@2026.03.2
+        with:
+          arch: ${{ matrix.arch }}
+          container-registry-password: ${{ secrets.GITHUB_TOKEN }}
+          image: ${{ matrix.image }}
+          image-tags: |
+            ${{ needs.init.outputs.version }}
+            latest
+          push: "true"
+          version: ${{ needs.init.outputs.version }}
+
+  manifest:
+    name: Publish multi-arch manifest
+    needs: [init, build]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # Write needed for Cosign signing (issue OIDC token for signing)
+      packages: write # To push the manifest to GitHub Container Registry
+    steps:
+      - name: Publish multi-arch manifest
+        uses: home-assistant/builder/actions/publish-multi-arch-manifest@[version]
+        with:
+          architectures: ${{ env.ARCHITECTURES }}
+          container-registry-password: ${{ secrets.GITHUB_TOKEN }}
+          image-name: ${{ env.IMAGE_NAME }}
+          image-tags: |
+            ${{ fromJSON(needs.init.outputs.info.version) }}
+            latest
