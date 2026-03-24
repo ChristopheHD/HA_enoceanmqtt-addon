@@ -62,10 +62,10 @@ jobs:
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ matrix.image }}
           image-tags: |
-            ${{ needs.init.outputs.version }}
+            ${{ fromJSON(needs.init.outputs.version) }}
             latest
           push: "true"
-          version: ${{ needs.init.outputs.version }}
+          version: ${{ fromJSON(needs.init.outputs.version) }}
 
   manifest:
     name: Publish multi-arch manifest
@@ -76,11 +76,11 @@ jobs:
       packages: write # To push the manifest to GitHub Container Registry
     steps:
       - name: Publish multi-arch manifest
-        uses: home-assistant/builder/actions/publish-multi-arch-manifest@[version]
+        uses: home-assistant/builder/actions/publish-multi-arch-manifest@2026.03.2
         with:
           architectures: ${{ env.ARCHITECTURES }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image-name: ${{ env.IMAGE_NAME }}
           image-tags: |
-            ${{ fromJSON(needs.init.outputs.info.version) }}
+            ${{ fromJSON(needs.init.outputs.version) }}
             latest
