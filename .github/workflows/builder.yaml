@@ -66,6 +66,7 @@ jobs:
             latest
           push: "true"
           version: ${{ fromJSON(needs.init.outputs.version) }}
+          file: ./addon/Dockerfile
 
   manifest:
     name: Publish multi-arch manifest
