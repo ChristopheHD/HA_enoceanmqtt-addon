@@ -10,40 +10,50 @@ on:
       - master
   workflow_dispatch:
 
-env:
-  ARCHITECTURES: '["amd64", "aarch64"]'
-  IMAGE_NAME: ha_enoceanmqtt-addon
-  version: "dev"
-
 permissions:
   contents: read
 
 jobs:
-  init:
-    name: Initialize build
+  prepare:
+    name: Prepare
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.matrix.outputs.matrix }}
-      version: ${{ steps.info.outputs.version }}
+      architectures: ${{ steps.info.outputs.architectures }}
+      build_matrix: ${{ steps.matrix.outputs.matrix }}
+      image_name: ${{ steps.normalize.outputs.image_name }}
+      registry_prefix: ${{ steps.normalize.outputs.registry_prefix }}
+      version: ${{ steps.normalize.outputs.version }}
     steps:
-      - uses: actions/checkout@v6.0.2
+      - name: Check out the repository
+        uses: actions/checkout@v6.0.2
 
-      - name: Get information
+      - name: Get app information
         id: info
         uses: home-assistant/actions/helpers/info@master
         with:
           path: "./addon"
 
-      - name: Get build matrix
+      - name: Normalize app information
+        id: normalize
+        run: |
+          image="${{ steps.info.outputs.image }}"
+          echo "image_name=${image##*/}" >> "$GITHUB_OUTPUT"
+          echo "registry_prefix=${image%/*}" >> "$GITHUB_OUTPUT"
+          # Strip surrounding quotes that the info action includes from YAML string values
+          version="${{ steps.info.outputs.version }}"
+          echo "version=${version//[\"\']/}" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare build matrix
         id: matrix
-        uses: ChristopheHD/builder/actions/prepare-multi-arch-matrix@master
+        uses: home-assistant/builder/actions/prepare-multi-arch-matrix@2026.03.2
         with:
-          architectures: ${{ env.ARCHITECTURES }}
-          image-name: ${{ env.IMAGE_NAME }}
+          architectures: ${{ steps.info.outputs.architectures }}
+          image-name: ${{ steps.normalize.outputs.image_name }}
+          registry-prefix: ${{ steps.normalize.outputs.registry_prefix }}
 
   build:
     name: Build ${{ matrix.arch }} image
-    needs: init
+    needs: prepare
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read # To check out the code
@@ -51,9 +61,12 @@ jobs:
       packages: write # To push built images to GitHub Container Registry
     strategy:
       fail-fast: false
-      matrix: ${{ fromJSON(needs.init.outputs.matrix) }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.build_matrix) }}
     steps:
-      - uses: actions/checkout@v6
+      - name: Check out the repository
+        uses: actions/checkout@v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Build image
         uses: home-assistant/builder/actions/build-image@2026.03.2
@@ -62,15 +75,15 @@ jobs:
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ matrix.image }}
           image-tags: |
-            ${{ fromJSON(needs.init.outputs.version) }}
+            ${{ needs.prepare.outputs.version }}
             latest
           push: "true"
-          version: ${{ fromJSON(needs.init.outputs.version) }}
+          version: ${{ needs.prepare.outputs.version }}
           context: addon/
 
   manifest:
     name: Publish multi-arch manifest
-    needs: [init, build]
+    needs: [prepare, build]
     runs-on: ubuntu-latest
     permissions:
       id-token: write # Write needed for Cosign signing (issue OIDC token for signing)
@@ -79,9 +92,10 @@ jobs:
       - name: Publish multi-arch manifest
         uses: home-assistant/builder/actions/publish-multi-arch-manifest@2026.03.2
         with:
-          architectures: ${{ env.ARCHITECTURES }}
+          architectures: ${{ needs.prepare.outputs.architectures }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
-          image-name: ${{ env.IMAGE_NAME }}
+          image-name: ${{ needs.prepare.outputs.image_name }}
           image-tags: |
-            ${{ fromJSON(needs.init.outputs.version) }}
+            ${{ needs.prepare.outputs.version }}
             latest
+          registry-prefix: ${{ needs.prepare.outputs.registry_prefix }}
