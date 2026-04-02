@@ -1,3 +1,9 @@
+## 3.0.1b1
+
+### 🔧 What's Fixed
+
+- Attempt to correct issue with HA 2026.4 (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/111)
+
 ## 3.0.0
 
 ### ✨ What's New
