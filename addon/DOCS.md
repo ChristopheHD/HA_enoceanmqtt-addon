@@ -19,7 +19,3 @@ When pairing is needed for your device, use the following procedure:
 1. Turn off the __`LEARN`__ switch once pairing is completed to avoid unwanted pairing with other devices.
 
 See the related [wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Pairing-your-device) for more details.
-
-# Additional Information
-
-I greatly recommend to have a look at the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) page for all sort of information and material regarding HA_enoceanmqtt.
