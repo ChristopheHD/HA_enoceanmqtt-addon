@@ -1,9 +1,3 @@
-## 3.0.1
-
-### 🔧 What's Fixed
-
-- In some unknown cases, the app becomes unstable with HA 2026.4 upgrade (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/111)
-
 ## 3.0.0
 
 ### ✨ What's New
