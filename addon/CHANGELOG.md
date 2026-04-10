@@ -1,3 +1,9 @@
+## 3.0.1
+
+### ✨ What's New
+
+- Troubleshoot section in the documentation tab and in the Wiki
+
 ## 3.0.0
 
 ### ✨ What's New
