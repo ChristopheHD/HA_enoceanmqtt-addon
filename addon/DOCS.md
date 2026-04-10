@@ -19,3 +19,13 @@ When pairing is needed for your device, use the following procedure:
 1. Turn off the __`LEARN`__ switch once pairing is completed to avoid unwanted pairing with other devices.
 
 See the related [wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Pairing-your-device) for more details.
+
+# Troubleshoot
+
+In case of issue, please check the following:
+- The EnOcean key is correclty configured in the configuration tab of the app
+- No other integration or app is using the EnOcean key
+- The official Home Assistant EnOcean integration is not activated
+
+Issues can be raised on [GitHub](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues).
+New features or questions can be asked on [GitHub discussions](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/discussions)
