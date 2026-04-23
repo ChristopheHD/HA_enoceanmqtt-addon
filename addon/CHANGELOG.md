@@ -4,6 +4,10 @@
 
 - Troubleshoot section in the documentation tab and in the Wiki
 
+### 💫 What's changed
+
+- EEP D2-06-01 : buttons are changed from event entity to device trigger (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/49)
+
 ## 3.0.0
 
 ### ✨ What's New
