@@ -8,6 +8,10 @@
 
 - EEP D2-06-01 : buttons are changed from event entity to device trigger (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/49)
 
+### 🔧 What's Fixed
+
+- EEP D2-05-00 and D2-05-02 : remove error log when receiving unknown position or unknown tilt
+
 ## 3.0.0
 
 ### ✨ What's New
