@@ -1,8 +1,9 @@
-## 3.0.1
+## 3.1.0
 
 ### ✨ What's New
 
-- Troubleshoot section in the documentation tab and in the Wiki
+- Troubleshoot section in the documentation tab and [in the Wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Troubleshoot)
+- EEP A5-07-01 can now be used as a [virtual device](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Virtual-devices) thanks to @TheFaceCo tests
 
 ### 💫 What's changed
 
@@ -10,7 +11,11 @@
 
 ### 🔧 What's Fixed
 
-- EEP D2-05-00 and D2-05-02 : remove error log when receiving unknown position or unknown tilt
+- EEP D2-05-00 and D2-05-02 : remove error log when receiving unknown position or unknown tilt (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/37)
+
+### 👏 New Contributors
+
+- @TheFaceCo made their first contribution
 
 ## 3.0.0
 
