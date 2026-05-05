@@ -4,6 +4,7 @@
 
 - Troubleshoot section in the documentation tab and [in the Wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Troubleshoot)
 - EEP A5-07-01 can now be used as a [virtual device](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Virtual-devices) thanks to @TheFaceCo tests
+- Device Becker shutters (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/50) thanks to @OlwinFroon tests
 
 ### 💫 What's changed
 
@@ -16,6 +17,7 @@
 ### 👏 New Contributors
 
 - @TheFaceCo made their first contribution
+- @OlwinFroon made their first contribution
 
 ## 3.0.0
 
