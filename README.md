@@ -22,15 +22,15 @@ This [Home Assistant](https://www.home-assistant.io/) app allows to integrate [E
 
 1. **Compatibility**
 
-100+ devices supported
+[100+ devices supported](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Supported-devices)
 
 2. **Pairing**
 
-Pair devices from Home Assistant
+[Pair devices from Home Assistant](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Pairing-your-device)
 
 3. **Versatile architecture**
 
-Add your own device compatibility
+[Add your own device compatibility](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Using-custom-mapping.yaml-and-or-EEP.xml-file%28s%29)
 
 ## ⚙ ️Simple setup
 

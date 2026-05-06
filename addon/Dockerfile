@@ -1,5 +1,4 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/base:3.23
 
 # Create Working Directory
 WORKDIR /app
@@ -24,3 +23,9 @@ COPY run.sh .
 RUN chmod a+x run.sh
 
 CMD [ "/app/run.sh" ]
+
+LABEL \
+    org.opencontainers.image.title="Home Assistant EnOcean app" \
+    org.opencontainers.image.description="Integrate EnOcean devices using MQTT integration" \
+    org.opencontainers.image.source="https://github.com/ChristopheHD/HA_enoceanmqtt-addon" \
+    org.opencontainers.image.licenses="GPL-3.0"

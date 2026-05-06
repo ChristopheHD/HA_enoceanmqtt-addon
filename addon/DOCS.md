@@ -20,6 +20,12 @@ When pairing is needed for your device, use the following procedure:
 
 See the related [wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Pairing-your-device) for more details.
 
-# Additional Information
+# Troubleshoot
 
-I greatly recommend to have a look at the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) page for all sort of information and material regarding HA_enoceanmqtt.
+In case of issue, please check the following:
+- The EnOcean key is correclty configured in the configuration tab of the app
+- No other integration or app is using the EnOcean key
+- The official Home Assistant EnOcean integration is not activated
+
+Issues can be raised on [GitHub](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues).
+New features or questions can be asked on [GitHub discussions](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/discussions)

@@ -2,14 +2,14 @@
 name: "EnOcean MQTT"
 description: "EnOcean to MQTT bridge"
 url: "https://github.com/ChristopheHD/HA_enoceanmqtt-addon"
-version: "3.0.0"
+version: "3.1.0"
 slug: "ha_enoceanmqtt_aseracorp"
 homeassistant: "2024.2.0"
 init: false
 uart: true
 hassio_api: true
 homeassistant_api: true
-image: "ghcr.io/christophehd/{arch}-ha_enoceanmqtt-addon"
+image: "ghcr.io/christophehd/ha_enoceanmqtt-addon"
 services:
   - "mqtt:need"
 map:
