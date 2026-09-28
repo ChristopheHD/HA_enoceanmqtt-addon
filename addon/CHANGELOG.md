@@ -2,7 +2,7 @@
 
 ### 🔧 What's Fixed
 
-- EEP D2-50-00 : Ventilation remote transmission request is corrected thanks to @krauskopf
+- EEP D2-50-XX : Ventilation remote transmission request is corrected thanks to @krauskopf
 
 ### 👏 New Contributors
 
