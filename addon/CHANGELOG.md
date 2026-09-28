@@ -1,3 +1,13 @@
+## 3.1.1
+
+### 🔧 What's Fixed
+
+- EEP D2-50-00 : Ventilation remote transmission request is corrected thanks to @krauskopf
+
+### 👏 New Contributors
+
+- @krauskopf made their first contribution
+
 ## 3.1.0
 
 ### ✨ What's New
