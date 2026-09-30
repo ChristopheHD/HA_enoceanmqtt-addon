@@ -1,4 +1,8 @@
-## 3.1.1
+## 3.2.0
+
+### ✨ What's New
+
+- EEP D2-50-00 : Indoor and exhaust temperatures thanks to @krauskopf
 
 ### 🔧 What's Fixed
 
