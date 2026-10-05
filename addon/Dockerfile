@@ -24,7 +24,7 @@ RUN chmod a+x run.sh
 
 STOPSIGNAL SIGINT
 
-ENTRYPOINT [ "/app/run.sh" ]
+CMD [ "/app/run.sh" ]
 
 LABEL \
     org.opencontainers.image.title="Home Assistant EnOcean app" \
