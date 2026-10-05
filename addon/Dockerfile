@@ -4,16 +4,13 @@ ARG BUILD_VERSION="null"
 
 WORKDIR /build
 
-RUN apk add --no-cache python3 py3-pip git
+RUN apk add --no-cache python3 py3-pip py3-setuptools py3-wheel git
 
 COPY requirements.txt /build/requirements.txt
-RUN python3 -m pip install --upgrade setuptools wheel && \
-    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
+RUN pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
     pip3 install --no-cache-dir -r /build/requirements.txt
 ADD --keep-git-dir=false https://github.com/Turgon37/HA_enoceanmqtt.git#develop:enoceanmqtt /usr/local/lib/python3.14/site-packages/enoceanmqtt
 RUN printf '%s\n' "$BUILD_VERSION" > /usr/local/lib/python3.14/site-packages/enoceanmqtt/VERSION
-# Remove build-only Python packaging helpers before exporting /usr/local to the final image.
-RUN pip3 uninstall -y setuptools wheel
 
 FROM ghcr.io/home-assistant/base:3.23
 
