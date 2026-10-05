@@ -4,7 +4,7 @@ ARG BUILD_VERSION="null"
 
 WORKDIR /build
 
-RUN apk add --no-cache git
+RUN apk add --no-cache python3 git
 
 COPY requirements.txt /build/requirements.txt
 RUN python3 -m pip install --upgrade pip setuptools wheel && \
