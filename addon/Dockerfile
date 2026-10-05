@@ -4,10 +4,10 @@ ARG BUILD_VERSION="null"
 
 WORKDIR /build
 
-RUN apk add --no-cache python3 git
+RUN apk add --no-cache python3 py3-pip git
 
 COPY requirements.txt /build/requirements.txt
-RUN python3 -m pip install --upgrade pip setuptools wheel && \
+RUN python3 -m pip install --upgrade setuptools wheel && \
     pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
     pip3 install --no-cache-dir -r /build/requirements.txt
 ADD --keep-git-dir=false https://github.com/Turgon37/HA_enoceanmqtt.git#develop:enoceanmqtt /usr/local/lib/python3.14/site-packages/enoceanmqtt
