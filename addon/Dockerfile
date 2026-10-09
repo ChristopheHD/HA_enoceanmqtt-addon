@@ -19,6 +19,7 @@ FROM ghcr.io/home-assistant/base:3.23
 WORKDIR /app
 
 COPY --from=builder /usr/local /usr/local
+COPY --from=builder /app /app
 COPY rootfs /
 
 STOPSIGNAL SIGINT
