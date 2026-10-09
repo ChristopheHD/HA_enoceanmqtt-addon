@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv bashio
+set -e
+set -u
+
+# Set restrictive umask for the entire script
+umask 0077
+
+CONFIG_FILE="/data/enoceanmqtt.conf"
+LOG_FILE="$(bashio::config 'logging.log_file')"
+
+# Debug parameter
+if bashio::var.true "$(bashio::config 'logging.debug')"; then
+  DEBUG_FLAG="--debug"
+else
+  DEBUG_FLAG=""
+fi
+
+bashio::log.green "Starting EnOceanMQTT..."
+# shellcheck source=/dev/null
+. /app/venv/bin/activate
+exec enoceanmqtt $DEBUG_FLAG --logfile "$LOG_FILE" "$CONFIG_FILE"
