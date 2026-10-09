@@ -4,6 +4,7 @@
 
 - Device Lunos UNI_EO thanks to @krauskopf
 - EEP D2-50-00 : Indoor and exhaust temperatures thanks to @krauskopf
+- Device Eltako FL62
 
 ### 🔧 What's Fixed
 
