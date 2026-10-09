@@ -18,4 +18,4 @@ fi
 bashio::log.green "Starting EnOceanMQTT..."
 # shellcheck source=/dev/null
 . /app/venv/bin/activate
-exec enoceanmqtt $DEBUG_FLAG --logfile "$LOG_FILE" "$CONFIG_FILE"
+exec /app/venv/bin/enoceanmqtt $DEBUG_FLAG --logfile "$LOG_FILE" "$CONFIG_FILE"
