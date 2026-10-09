@@ -11,8 +11,10 @@ RUN python3 -m venv /app/venv && \
     . /app/venv/bin/activate && \
     pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
     pip3 install --no-cache-dir -r /build/requirements.txt
-ADD --keep-git-dir=false https://github.com/Turgon37/HA_enoceanmqtt.git#develop:enoceanmqtt /usr/local/lib/python3.14/site-packages/enoceanmqtt
-RUN printf '%s\n' "$BUILD_VERSION" > /usr/local/lib/python3.14/site-packages/enoceanmqtt/VERSION
+ADD --keep-git-dir=false https://github.com/Turgon37/HA_enoceanmqtt.git#develop:enoceanmqtt /app/venv/lib/python3.14/site-packages/enoceanmqtt
+RUN printf '%s\n' "$BUILD_VERSION" > /app/venv/lib/python3.14/site-packages/enoceanmqtt/VERSION
+# Create the executable symlink or script manually since we are directly adding the module
+RUN printf '#!/usr/bin/env sh\nexec python3 -m enoceanmqtt "$@"\n' > /app/venv/bin/enoceanmqtt && chmod +x /app/venv/bin/enoceanmqtt
 
 FROM ghcr.io/home-assistant/base:3.23
 
