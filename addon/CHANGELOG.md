@@ -5,8 +5,8 @@
 - Firmware version, hardware version and serial number in the bridge device info (ENOCEANMQTT device) thanks to @Turgon37
 - Connection state and version of the bridge device available as diagnostic entities thanks to @Turgon37
 - All devices are linked to the bridge, HA identifies that such device is provided by the bridge and devices becomes unavailable when the bridge is stopped thanks to @Turgon37
+- Device Lunos UNI_EO thanks to @krauskopf
 - EEP D2-50-00 : Indoor and exhaust temperatures thanks to @krauskopf
-
 
 ### 🔧 What's Fixed
 
