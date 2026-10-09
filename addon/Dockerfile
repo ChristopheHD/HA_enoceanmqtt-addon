@@ -1,26 +1,28 @@
-FROM ghcr.io/home-assistant/base:3.24
+FROM ghcr.io/home-assistant/base:3.23 AS builder
 
-# Create Working Directory
+ARG BUILD_VERSION="null"
+
+WORKDIR /build
+
+RUN apk add --no-cache python3 py3-pip py3-setuptools py3-wheel git
+
+COPY requirements.txt /build/requirements.txt
+RUN python3 -m venv /app/venv && \
+    . /app/venv/bin/activate && \
+    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
+    pip3 install --no-cache-dir -r /build/requirements.txt
+ADD --keep-git-dir=false https://github.com/Turgon37/HA_enoceanmqtt.git#develop:enoceanmqtt /usr/local/lib/python3.14/site-packages/enoceanmqtt
+RUN printf '%s\n' "$BUILD_VERSION" > /usr/local/lib/python3.14/site-packages/enoceanmqtt/VERSION
+
+FROM ghcr.io/home-assistant/base:3.23
+
 WORKDIR /app
 
-# Install enoceanmqtt and requirements
-COPY requirements.txt .
-RUN apk add --no-cache python3 py3-pip git && \
-    python3 -m venv /app/venv && \
-    . /app/venv/bin/activate && \
-    python3 -m pip install --upgrade pip && \
-    pip3 install -r requirements.txt && \
-    pip3 install git+https://github.com/ChristopheHD/enocean.git  && \
-    git clone -b master --single-branch --depth 1 https://github.com/embyt/enocean-mqtt.git && \
-    cd enocean-mqtt && pip install -e . && cd .. && \
-    echo "Installing from repository head" && \
-    git clone -b develop --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git ; \
-    cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt && \
-    rm -rf ./HA_enoceanmqtt
-
-# Copy data for add-on
+COPY --from=builder /usr/local /usr/local
 COPY run.sh .
 RUN chmod a+x run.sh
+
+STOPSIGNAL SIGINT
 
 CMD [ "/app/run.sh" ]
 
