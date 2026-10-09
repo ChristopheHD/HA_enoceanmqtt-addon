@@ -1,3 +1,19 @@
+## 3.2.0
+
+### ✨ What's New
+
+- Device Lunos UNI_EO thanks to @krauskopf
+- EEP D2-50-00 : Indoor and exhaust temperatures thanks to @krauskopf
+- Device Eltako FL62
+
+### 🔧 What's Fixed
+
+- EEP D2-50-XX : Ventilation remote transmission request is corrected thanks to @krauskopf
+
+### 👏 New Contributors
+
+- @krauskopf made their first contribution
+
 ## 3.1.0
 
 ### ✨ What's New
