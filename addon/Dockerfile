@@ -19,12 +19,9 @@ FROM ghcr.io/home-assistant/base:3.23
 WORKDIR /app
 
 COPY --from=builder /usr/local /usr/local
-COPY run.sh .
-RUN chmod a+x run.sh
+COPY rootfs /
 
 STOPSIGNAL SIGINT
-
-CMD [ "/app/run.sh" ]
 
 LABEL \
     org.opencontainers.image.title="Home Assistant EnOcean app" \
