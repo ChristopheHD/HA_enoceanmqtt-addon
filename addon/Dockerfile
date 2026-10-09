@@ -18,6 +18,8 @@ RUN printf '#!/usr/bin/env sh\nexec python3 -m enoceanmqtt "$@"\n' > /app/venv/b
 
 FROM ghcr.io/home-assistant/base:3.23
 
+RUN apk add --no-cache python3
+
 WORKDIR /app
 
 COPY --from=builder /usr/local /usr/local
