@@ -17,7 +17,7 @@ RUN PYTHON_LIB_PATH=$(find /app/venv/lib -maxdepth 1 -name "python3.*" -type d |
     mv /tmp/HA_enoceanmqtt-develop/enoceanmqtt "$PYTHON_LIB_PATH/site-packages/" && \
     rm -rf /tmp/HA_enoceanmqtt-develop && \
     printf '%s\n' "$BUILD_VERSION" > "$PYTHON_LIB_PATH/site-packages/enoceanmqtt/VERSION" && \
-    printf '#!/usr/bin/env sh\nexec python3 -m enoceanmqtt "$@"\n' > /app/venv/bin/enoceanmqtt && \
+    printf '#!/usr/bin/env sh\nexec python3 -m enoceanmqtt.enoceanmqtt "$@"\n' > /app/venv/bin/enoceanmqtt && \
     chmod +x /app/venv/bin/enoceanmqtt
 
 FROM ghcr.io/home-assistant/base:3.23
