@@ -21,7 +21,7 @@ RUN . /app/venv/bin/activate && \
     cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt/ && \
     rm -rf ./HA_enoceanmqtt && \
     printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION && \
-    printf '#!/usr/bin/env sh\nexec python3 /app/enocean-mqtt/enoceanmqtt/enoceanmqtt.py "$@"\n' > /app/venv/bin/enoceanmqtt && \
+    printf '#!/usr/bin/env sh\nexport PYTHONPATH=/app/enocean-mqtt\nexec python3 /app/enocean-mqtt/enoceanmqtt/enoceanmqtt.py "$@"\n' > /app/venv/bin/enoceanmqtt && \
     chmod +x /app/venv/bin/enoceanmqtt
 
 FROM ghcr.io/home-assistant/base:3.23
