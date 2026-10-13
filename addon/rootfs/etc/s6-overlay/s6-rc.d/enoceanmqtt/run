@@ -19,4 +19,4 @@ bashio::log.green "Starting EnOceanMQTT..."
 # shellcheck source=/dev/null
 . /app/venv/bin/activate
 export PYTHONPATH=/app/enocean-mqtt
-exec python3 /app/enocean-mqtt/enoceanmqtt/enoceanmqtt.py $DEBUG_FLAG --logfile "$LOG_FILE" "$CONFIG_FILE"
+exec python3 -m enoceanmqtt.enoceanmqtt $DEBUG_FLAG --logfile "$LOG_FILE" "$CONFIG_FILE"
