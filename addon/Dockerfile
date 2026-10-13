@@ -20,9 +20,7 @@ RUN . /app/venv/bin/activate && \
     git clone -b develop --single-branch --depth 1 https://github.com/Turgon37/HA_enoceanmqtt.git && \
     cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt/ && \
     rm -rf ./HA_enoceanmqtt && \
-    printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION && \
-    printf '#!/usr/bin/env sh\nexport PYTHONPATH=/app/enocean-mqtt\nexec python3 /app/enocean-mqtt/enoceanmqtt/enoceanmqtt.py "$@"\n' > /app/venv/bin/enoceanmqtt && \
-    chmod +x /app/venv/bin/enoceanmqtt
+    printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION
 
 FROM ghcr.io/home-assistant/base:3.23
 
