@@ -1,0 +1,28 @@
+name: Test Addon
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Build and Test Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        run: docker build -t test-addon ./addon
+
+      - name: Run container dry-run
+        run: |
+          docker run --rm -d --name test-container test-addon
+          sleep 5
+          docker logs test-container
+          docker stop test-container
