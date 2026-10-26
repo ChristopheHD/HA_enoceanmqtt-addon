@@ -1,3 +1,9 @@
+## 4.0.1
+
+### 🔧 What's Fixed
+
+- Fix crash at startup (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/139 and https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/140)
+
 ## 4.0.0
 
 ### 💫 What's changed
