@@ -1,3 +1,9 @@
+## 4.0.2
+
+### 🔧 What's Fixed
+
+- App freeze when stopping shutters (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/issues/142)
+
 ## 4.0.1
 
 ### 🔧 What's Fixed
