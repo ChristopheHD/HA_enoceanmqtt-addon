@@ -9,7 +9,7 @@ RUN apk add --no-cache python3 py3-pip py3-setuptools py3-wheel git
 COPY requirements.txt /build/requirements.txt
 RUN python3 -m venv /app/venv && \
     . /app/venv/bin/activate && \
-    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git && \
+    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git@0.63 && \
     pip3 install --no-cache-dir -r /build/requirements.txt
 RUN . /app/venv/bin/activate && \
     python3 -m pip install --upgrade pip && \
