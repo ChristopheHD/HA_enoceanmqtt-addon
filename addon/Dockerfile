@@ -15,7 +15,7 @@ RUN . /app/venv/bin/activate && \
     python3 -m pip install --upgrade pip && \
     git clone -b master --single-branch --depth 1 https://github.com/embyt/enocean-mqtt.git && \
     cd enocean-mqtt && pip install -e . && cd .. && \
-    git clone -b develop --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git@v4.0.2 && \
+    git clone -b v4.0.2 --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git && \
     cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt/ && \
     rm -rf ./HA_enoceanmqtt && \
     printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION
