@@ -1,4 +1,4 @@
-FROM ghcr.io/home-assistant/base:3.23 AS builder
+FROM ghcr.io/home-assistant/base:3.24 AS builder
 
 ARG BUILD_VERSION="null"
 
@@ -20,7 +20,7 @@ RUN . /app/venv/bin/activate && \
     rm -rf ./HA_enoceanmqtt && \
     printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION
 
-FROM ghcr.io/home-assistant/base:3.23
+FROM ghcr.io/home-assistant/base:3.24
 
 RUN apk add --no-cache python3
 
