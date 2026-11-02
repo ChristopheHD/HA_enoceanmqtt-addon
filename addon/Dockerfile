@@ -31,7 +31,7 @@ COPY --from=builder /app /app
 COPY --from=builder /build/enocean-mqtt /app/enocean-mqtt
 COPY rootfs /
 
-STOPSIGNAL SIGINT
+STOPSIGNAL SIGTERM
 
 LABEL \
     org.opencontainers.image.title="Home Assistant EnOcean app" \
