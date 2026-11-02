@@ -1,8 +1,16 @@
-## 4.0.3
+## 4.1.0
+
+### ✨ What's New
+
+- EEP D2-50-00 : Maintenance and diagnostic entities thanks to @loewi1979 (https://github.com/mak-gitdev/HA_enoceanmqtt/discussions/176)
 
 ### 🔧 What's Fixed
 
 - Application has the status error when stopped manually (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/150)
+
+### 👏 New Contributors
+
+- @loewi1979 made their first contribution
 
 ## 4.0.2
 
