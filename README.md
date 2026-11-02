@@ -28,7 +28,11 @@ This [Home Assistant](https://www.home-assistant.io/) app allows to integrate [E
 
 [Pair devices from Home Assistant](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Pairing-your-device)
 
-3. **Versatile architecture**
+3. **Device management**
+
+Manage EnOcean devices from the app's built-in web interface in the Home Assistant sidebar.
+
+4. **Versatile architecture**
 
 [Add your own device compatibility](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Using-custom-mapping.yaml-and-or-EEP.xml-file%28s%29)
 
@@ -52,15 +56,16 @@ To install this project, follow these steps:
 
 #### Configuration
 
-1. Adapt the [`addon/enoceanmqtt.devices.sample`](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample) (refer to the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) for help) and put it to your Home Assistant **/config** directory. You can use the Home Assistant **File Editor**.
+1. To import an existing device list, adapt the [`addon/enoceanmqtt.devices.sample`](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample) (refer to the [wiki](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki) for help) and put it in your Home Assistant **/config** directory. The built-in web interface can also be used to add devices without a device file.
 1. Go on the **Configuration** tab of the app
-   - Indicate the location of this device file under the **device_file** entry (on HAOS, it would be `/config/enoceanmqtt.devices`).
+   - To import an existing device file, set **device_file** to its location (for example, `/config/enoceanmqtt.devices`). Otherwise, leave the default and add devices from the sidebar after starting the app.
    - Select the serial interface of your EnOcean transceiver in the list of detected serial ports. When using yaml configuration, the format is for example:
      ```yaml
      enocean_port: /dev/ttyUSB0
      ```
    - Click **Save** at the bottom of the page
 1. Start the app by going to **Info** tab and click **Start**
+1. Open **EnOcean MQTT** in the Home Assistant sidebar to add and manage devices.
 
 ## 👏🏻 Contributing
 

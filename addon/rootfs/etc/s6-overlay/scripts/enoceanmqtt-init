@@ -27,7 +27,7 @@ CONFIG_FILE="/data/enoceanmqtt.conf"
 DB_FILE="/data/enoceanmqtt_db.json"
 DEVICE_FILE="$(bashio::config 'device_file')"
 if [ ! -f "$DEVICE_FILE" ]; then
-    bashio::exit.nok "Device file not found at $DEVICE_FILE"
+    bashio::log.warning "Device file not found at $DEVICE_FILE; starting without legacy devices"
 fi
 LOG_FILE="$(bashio::config 'logging.log_file')"
 MAPPING_FILE="$(bashio::config 'mapping_files.mapping_file')"
@@ -116,7 +116,9 @@ MQTT_DISCOVERY_PREFIX="${MQTT_DISCOVERY_PREFIX%/}/"
   printf "mqtt_pwd              = %s\n" "${MQTT_PSWD}"
   printf "mqtt_debug            = %s\n" "$(bashio::config 'logging.debug')"
   printf "\n"
-  cat "$DEVICE_FILE"
+  if [ -f "$DEVICE_FILE" ]; then
+    cat "$DEVICE_FILE"
+  fi
 } > "${CONFIG_FILE}"
 bashio::log.debug "Configuration written to ${CONFIG_FILE}"
 
