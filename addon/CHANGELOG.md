@@ -1,3 +1,9 @@
+## 4.0.3
+
+### 🔧 What's Fixed
+
+- Application has the status error when stopped manually (https://github.com/ChristopheHD/HA_enoceanmqtt-addon/pull/150)
+
 ## 4.0.2
 
 ### 🔧 What's Fixed
