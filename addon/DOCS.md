@@ -1,8 +1,9 @@
 # Configuration
 
-1. Create a configuration file enoceanmqtt.devices ([sample](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample)) in the configuration folder of Home Assistant
-2. Select the enocean key in the list
+1. To import an existing device list, create an `enoceanmqtt.devices` configuration file ([sample](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/blob/master/addon/enoceanmqtt.devices.sample)) in the Home Assistant configuration folder. This is optional; devices can also be added from the app's web interface.
+2. Select the EnOcean key in the list.
 3. Leave the MQTT broker configuration empty if you want to use your Home Assistant Mosquitto broker parameters.
+4. Start the app and open **EnOcean MQTT** in the Home Assistant sidebar to add or manage devices. Imported device-file entries are migrated on first startup.
 
 For advanced configuration, see the related [wiki page](https://github.com/ChristopheHD/HA_enoceanmqtt-addon/wiki/Installation#configuration) for more details.
 
