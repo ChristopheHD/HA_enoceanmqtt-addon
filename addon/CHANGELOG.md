@@ -1,8 +1,10 @@
-## 4.1.0
+## 5.0.0
 
 ### ✨ What's New
 
 - EEP D2-50-00 : Maintenance and diagnostic entities thanks to @loewi1979 (https://github.com/mak-gitdev/HA_enoceanmqtt/discussions/176)
+- EEP D2-30-00 thanks to @charles-huet (https://github.com/ChristopheHD/enocean/pull/44)
+- Encrypted devices thanks to @charles-huet (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/72/changes)
 
 ### 🔧 What's Fixed
 
@@ -11,6 +13,7 @@
 ### 👏 New Contributors
 
 - @loewi1979 made their first contribution
+- @charles-huet made their first contribution
 
 ## 4.0.2
 
