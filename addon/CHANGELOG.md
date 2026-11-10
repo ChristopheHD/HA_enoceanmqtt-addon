@@ -4,7 +4,7 @@
 
 - EEP D2-50-00 : Maintenance and diagnostic entities thanks to @loewi1979 (https://github.com/mak-gitdev/HA_enoceanmqtt/discussions/176)
 - EEP D2-30-00 thanks to @charles-huet (https://github.com/ChristopheHD/enocean/pull/44)
-- Encrypted devices thanks to @charles-huet (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/72/changes)
+- Encrypted devices thanks to @charles-huet (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/72)
 
 ### 🔧 What's Fixed
 
