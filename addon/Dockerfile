@@ -1,4 +1,4 @@
-FROM ghcr.io/home-assistant/base:3.23 AS builder
+FROM ghcr.io/home-assistant/base:3.24 AS builder
 
 ARG BUILD_VERSION="null"
 
@@ -9,18 +9,18 @@ RUN apk add --no-cache python3 py3-pip py3-setuptools py3-wheel git
 COPY requirements.txt /build/requirements.txt
 RUN python3 -m venv /app/venv && \
     . /app/venv/bin/activate && \
-    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git@0.63 && \
+    pip3 install --no-cache-dir git+https://github.com/ChristopheHD/enocean.git@0.64 && \
     pip3 install --no-cache-dir -r /build/requirements.txt
 RUN . /app/venv/bin/activate && \
     python3 -m pip install --upgrade pip && \
     git clone -b master --single-branch --depth 1 https://github.com/embyt/enocean-mqtt.git && \
     cd enocean-mqtt && pip install -e . && cd .. && \
-    git clone -b v4.0.2 --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git && \
+    git clone -b v5.0.0 --single-branch --depth 1 https://github.com/ChristopheHD/HA_enoceanmqtt.git && \
     cp -rf ./HA_enoceanmqtt/enoceanmqtt enocean-mqtt/ && \
     rm -rf ./HA_enoceanmqtt && \
     printf '%s\n' "$BUILD_VERSION" > enocean-mqtt/enoceanmqtt/VERSION
 
-FROM ghcr.io/home-assistant/base:3.23
+FROM ghcr.io/home-assistant/base:3.24
 
 RUN apk add --no-cache python3
 
@@ -31,7 +31,7 @@ COPY --from=builder /app /app
 COPY --from=builder /build/enocean-mqtt /app/enocean-mqtt
 COPY rootfs /
 
-STOPSIGNAL SIGINT
+STOPSIGNAL SIGTERM
 
 LABEL \
     org.opencontainers.image.title="Home Assistant EnOcean app" \
