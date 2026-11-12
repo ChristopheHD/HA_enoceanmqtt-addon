@@ -1,3 +1,9 @@
+## 5.1.0
+
+### ✨ What's New
+
+- Device Afriso FTF thanks to @jansorg (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/77)
+
 ## 5.0.0
 
 ### ✨ What's New
