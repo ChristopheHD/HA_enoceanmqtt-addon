@@ -4,6 +4,10 @@
 
 - Device Afriso FTF thanks to @jansorg (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/77)
 
+### 🔧 What's Fixed
+
+- Sometimes the bridge version was not set, corrected by @Turgon37 (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/80)
+
 ## 5.0.0
 
 ### ✨ What's New
