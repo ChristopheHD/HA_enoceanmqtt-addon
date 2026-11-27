@@ -9,10 +9,12 @@
 ### 🔧 What's Fixed
 
 - Sometimes the bridge version was not set, corrected by @Turgon37 (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/80)
+- EEP A5-20-06 : target temperature was sent truncated, corrected by @Fl0x23 (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/82)
 
 ### 👏 New Contributors
 
 - @Qcombus made their first contribution
+- @Fl0x23 made their first contribution
 
 ## 5.0.0
 
