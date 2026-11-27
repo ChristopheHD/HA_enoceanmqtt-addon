@@ -1,3 +1,21 @@
+## 5.1.0
+
+### ✨ What's New
+
+- Device Afriso FTF thanks to @jansorg (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/77)
+- EEP A5-38-08 : light entity thanks to @Qcombus (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/79)
+- Device Leviton WSP20-9D0 thanks to @Qcombus (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/79)
+
+### 🔧 What's Fixed
+
+- Sometimes the bridge version was not set, corrected by @Turgon37 (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/80)
+- EEP A5-20-06 : target temperature was sent truncated, corrected by @Fl0x23 (https://github.com/ChristopheHD/HA_enoceanmqtt/pull/82)
+
+### 👏 New Contributors
+
+- @Qcombus made their first contribution
+- @Fl0x23 made their first contribution
+
 ## 5.0.0
 
 ### ✨ What's New
